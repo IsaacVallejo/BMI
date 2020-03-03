@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BMI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your weight: (in lbs) ");
+
+            int weight = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter your height: (in inches) ");
+
+            int height = Convert.ToInt32(Console.ReadLine());
+
+            float bmi = (weight * 703) / (height * height);
+
+            string class1, class2, class3 ;
+
+            if (bmi < 18.5)
+            {
+                class1 = "Underweight";
+
+                if (bmi < 16)
+                {
+                    class2 = "Severe thinness";
+                }
+
+                else if (bmi <= 16.99)
+                {
+                    class2 = "Moderate thinness";
+                }
+
+                else //17-18.49
+                {
+                    class2 = "Mild thinness";
+                }
+            }
+            else if (bmi <= 24.9)
+            {
+                class1 = "Normal Weight";
+            }
+            else if (bmi <= 29.9)
+            {
+                class1 = "Overweight";
+            }
+            else       
+            {
+                class1 = "Obese";
+
+                if (bmi <= 34.9)
+                {
+                    class1 = "Obese class I";
+                }
+                else if (bmi <= 39.9)
+                {
+                    class2 = "Obese class II";
+                }
+                else
+                {
+                    class3 = "Obese class III";
+                }
+            }
+            Console.WriteLine("Your BMI is: {0}", bmi);
+
+        }
+    }
+}
